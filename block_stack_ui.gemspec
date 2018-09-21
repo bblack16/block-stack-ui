@@ -1,7 +1,7 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "block_stack_ui/version"
+require "block_stack/ui/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "block_stack_ui"
@@ -32,11 +32,11 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'block_stack_server', '~> 1.0'
   spec.add_runtime_dependency 'opal', '~> 0.11.0'
-  spec.add_runtime_dependency 'opal-sprockets'
-  spec.add_runtime_dependency 'opal-browser'
-  spec.add_runtime_dependency 'sass'
-  spec.add_runtime_dependency 'slim'
-  spec.add_runtime_dependency 'dformed'
+  spec.add_runtime_dependency 'opal-sprockets', '~> 0.4'
+  spec.add_runtime_dependency 'opal-browser', '~> 0.2'
+  spec.add_runtime_dependency 'sass', '~> 3.5'
+  spec.add_runtime_dependency 'slim', '~> 3.0'
+  spec.add_runtime_dependency 'dformed', '~> 1.0'
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
