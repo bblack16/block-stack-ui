@@ -26,7 +26,6 @@ require_relative 'dformed/presets'
 require_relative 'templates/general'
 require_relative 'templates/crud'
 require_relative 'templates/admin'
-require_relative 'util/util'
 
 module BlockStack
   class Server < Sinatra::Base
