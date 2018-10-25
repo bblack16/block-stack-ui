@@ -10,7 +10,7 @@ module BlockStack
           background: custom[:model].config.background,
           thumbnail:  custom[:model].config.thumbnail,
           icon:       custom[:model].config.icon,
-          color:      (custom[:model].config.header_color || :blue),
+          color:      (custom[:model].config.header_color || :black),
           animated:   true
         }
       when Model
@@ -20,7 +20,7 @@ module BlockStack
           background: custom[:model].background,
           thumbnail:  custom[:model].thumbnail,
           icon:       custom[:model].icon,
-          color:      (custom[:model].config.header_color || :blue),
+          color:      (custom[:model].config.header_color || :black),
           animated:   true
         }
       else
@@ -30,7 +30,7 @@ module BlockStack
           background: nil,
           thumbnail:  nil,
           icon:       nil,
-          color:      :blue,
+          color:      :black,
           animated:   true
         }
       end

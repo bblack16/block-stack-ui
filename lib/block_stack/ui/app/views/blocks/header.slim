@@ -6,14 +6,14 @@
 
 section.header class="#{color} #{background ? ' with-image' : nil}" style="#{defined?(height) ? "height: #{height}px" : nil}" *attributes
   - if background
-    .backdrop.animated.fadeIn == background
+    .backdrop == background
   - if thumbnail
     - thumbnail = image_tag(thumbnail) unless thumbnail.is_a?(BBLib::HTML::Tag)
     .thumbnail == thumbnail
   - elsif icon
-    .thumbnail.icon.animated.fadeIn == icon
+    .thumbnail.icon == icon
   .header-text
-    .title.text-center.bold.animated.fadeIn == title
+    .title.text-center.bold == title
     - if subtitle
-      .sub-title.text-center.subtitle.animated.fadeIn == subtitle
+      .sub-title.text-center.subtitle == subtitle
   == yield if block_given?
