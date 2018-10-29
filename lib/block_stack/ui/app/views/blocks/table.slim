@@ -6,18 +6,7 @@
 - data = [data] unless data.is_a?(Array)
 
 - unless locals[:headers] && headers
-  - headers = case data.first
-  - when Hash
-    - data.first.keys
-  - when BlockStack::Model
-    - unless headers = data.first.config.table_columns
-      - assoc = data.first.associations.map(&:method_name)
-      - headers = data.first._attrs.reject { |k, v| assoc.include?(k) || k != :id && (v[:options][:singleton] || v[:options].include?(:dformed) && !v[:options][:dformed]) }.keys.hmap { |k| [k.to_s.gsub('_', ' ').title_case, k] }
-    - headers
-  - when BBLib::Effortless
-    - data.first._attrs.reject { |k, v| k != :id && (v[:options][:singleton] || v[:options].include?(:dformed) && !v[:options][:dformed]) }.keys.hmap { |k| [k.to_s.gsub('_', ' ').title_case, k] }
-  - else
-    - { 'ID': :object_id, 'Name': :to_s, 'Class': :class }
+  - headers = BlockStack::Table.headers(data.first)
 
 table data-page-length="#{page_length}" data-order="[]" *attributes
   thead
