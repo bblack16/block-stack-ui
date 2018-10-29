@@ -38,7 +38,7 @@ module BlockStack
         elsif value.empty?
           BBLib::HTML::Tag.new(:i, 'Empty', style: 'color: #bebdbd')
         else
-          '<ul>' + value.map { |v| "<li>#{v}</li>" }.join + '</ul>'
+          '<ul>' + value.map { |v| "<li>#{display_value(v)}</li>" }.join + '</ul>'
         end
       when Time
         value.strftime(config.time_format)
@@ -60,6 +60,8 @@ module BlockStack
         end
       when NilClass
         BBLib::HTML::Tag.new(:i, 'nil', style: 'color: #bebdbd')
+      when BlockStack::Model
+        value.title
       else
         value.to_s
       end
