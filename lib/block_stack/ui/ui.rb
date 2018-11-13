@@ -121,6 +121,7 @@ module BlockStack
     end
 
     def self.run!(*args)
+      parse_argv
       register_controllers
       controllers.each { |c| c.asset_paths = self.asset_paths }
       precompile! if config.precompile
