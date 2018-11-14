@@ -121,11 +121,14 @@ module BlockStack
     end
 
     def self.run!(*args)
+      load_configs
       parse_argv
       register_controllers
       controllers.each { |c| c.asset_paths = self.asset_paths }
       precompile! if config.precompile
       logger.info("Booting up your BlockStack UI server...")
+      set(:environment, :development) unless environment
+      logger.info("Running in #{environment} mode")
       super
     end
 
