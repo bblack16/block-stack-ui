@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'opal', '~> 0.11.0'
   spec.add_runtime_dependency 'opal-sprockets', '~> 0.4'
   spec.add_runtime_dependency 'opal-browser', '~> 0.2'
+  spec.add_runtime_dependency 'opal-jquery', '~> 0.4.3'
   spec.add_runtime_dependency 'sass', '~> 3.5'
   spec.add_runtime_dependency 'slim', '~> 3.0'
   spec.add_runtime_dependency 'dformed', '~> 1.0'
