@@ -26,6 +26,7 @@ require_relative 'dformed/presets'
 require_relative 'templates/general'
 require_relative 'templates/crud'
 require_relative 'templates/admin'
+require_relative 'configuration'
 
 module BlockStack
   class Server < Sinatra::Base
@@ -34,20 +35,6 @@ module BlockStack
 
     # attr_ary_of String, :asset_paths, singleton: true, default_proc: :default_asset_paths, add_rem: true, uniq: true
     attr_of Menu, :menu, default_proc: :build_main_menu, singleton: true
-
-    config(
-      precompile: false, # When set to true, assets are precompiled into the public folder
-      precompile_assets: %w(stylesheets/*.css application.rb javascript/*.js *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2), # What assets should be precompiled by default
-      assets_prefix: '/assets/', # Sets the default route prefix for assets. Normally this should not be changed.
-      maps_prefix: '/__OPAL_SOURCE_MAPS__', # Sets the maps route for opal. Do not change unless you know what you are doing.
-      # app_name: nil, # Set to a string to override the class name being used as the server name.
-      navbar: :default, # Sets the name of the navbar view to render the main menu
-      default_renderer: :slim, # Sets the default rendering engine to be used when calling the render method.
-      time_format: '%B %d, %Y %H:%M:%S', # Set the default time format to use when displaying times across various widgets
-      date_format: '%B %d, %Y', # Set the default date format to use when displaying dates across various widgets
-      auto_load_models: true, # When true any source files in any of the app/model directories will be required automatically.
-      auto_load_controllers: true # When true any source files in any of the app/controller directories will be required automatically.
-    )
 
     Opal.use_gem 'bblib'
     Opal.use_gem 'dformed'

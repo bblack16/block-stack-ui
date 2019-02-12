@@ -7,6 +7,7 @@ module BlockStack
       # UI Engine Configuration
       attr_bool :precompile, default: false
       attr_ary_of [String], :precompile_assets, defaut: %w(stylesheets/*.css application.rb javascript/*.js *.png *.jpg *.svg *.eot *.ttf *.woff *.woff2)
+      attr_str :public_folder
       attr_str :assets_prefix, default: '/assets/'
       attr_str :maps_prefix, default: '/__OPAL_SOURCE_MAPS__'
       attr_sym :default_renderer, default: :slim
